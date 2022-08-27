@@ -11,4 +11,21 @@ export default NextAuth({
       clientSecret: googleClientSecret,
     }),
   ],
+  callbacks: {
+    async jwt({ token, user, account }) {
+      console.log(
+        'jwt',
+        JSON.stringify({
+          token,
+          user,
+          account,
+        })
+      );
+      return token;
+    },
+    async session({ session, token, user }) {
+      console.log('session', session);
+      return session;
+    },
+  },
 });
