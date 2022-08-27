@@ -3,6 +3,7 @@ import { useSession, signOut } from 'next-auth/react';
 
 export function AccountHandler() {
   const { data: session } = useSession();
+  console.log('session', session);
 
   if (session) {
     return (
